@@ -130,7 +130,7 @@ mealex/
 ## Usage
 
 1. **Sign In**: Use your Northwestern University Google account to sign in
-2. **Create Profile**: Complete your profile with personal information and preferences
+2. **Create/edit Profile**: Complete your profile with personal information and preferences
 3. **Browse Profiles**: Explore other students' profiles using the main dashboard
 4. **Connect**: Send invitations to students you'd like to dine with
 5. **Manage Invitations**: Accept or decline incoming requests in your profile page
