@@ -164,7 +164,7 @@ When your API is working correctly, you should see:
 }
 ```
 
-## 🚀 Why This Matters
+## Why This Matters
 
 Your REST API proves you can:
 - Build backend services with Node.js + Express
@@ -177,7 +177,7 @@ Your REST API proves you can:
 
 This is a complete full-stack skill set! 🎉
 
-## 🎯 Quick Verification Checklist
+## Quick Verification Checklist
 
 - [ ] Health endpoint returns 200 OK
 - [ ] Firebase Console shows the function is active
