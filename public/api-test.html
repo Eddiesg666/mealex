@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mealex API Tester</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            opacity: 0.9;
+        }
+        .content {
+            padding: 30px;
+        }
+        .endpoint-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        .endpoint-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .method {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+        .method.post { background: #28a745; }
+        .method.patch { background: #ffc107; color: #333; }
+        .method.delete { background: #dc3545; }
+        .endpoint-path {
+            font-family: 'Courier New', monospace;
+            color: #333;
+            font-size: 0.9em;
+        }
+        .endpoint-description {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        button:hover {
+            background: #5568d3;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .response-container {
+            margin-top: 15px;
+            display: none;
+        }
+        .response-container.show {
+            display: block;
+        }
+        .response-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        .status-badge.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status-badge.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .info-box strong {
+            color: #1976D2;
+        }
+        .loading {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 8px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍽️ Mealex REST API Tester</h1>
+            <p>Test your deployed API endpoints in real-time</p>
+        </div>
+        
+        <div class="content">
+            <div class="info-box">
+                <strong>ℹ️ About This Tool:</strong> This page lets you test your REST API endpoints. 
+                The <strong>GET /api/health</strong> endpoint works without authentication. 
+                Other endpoints require a Firebase Auth token (get it from your deployed app's console).
+            </div>
+
+            <!-- API Info Endpoint -->
+            <div class="endpoint-card">
+                <div class="endpoint-header">
+                    <div>
+                        <span class="method">GET</span>
+                        <span class="endpoint-path">/</span>
+                    </div>
+                </div>
+                <div class="endpoint-description">
+                    Get API information and available endpoints
+                </div>
+                <button onclick="testEndpoint('info')">
+                    Test API Info
+                </button>
+                <div id="response-info" class="response-container"></div>
+            </div>
+
+            <!-- Health Endpoint -->
+            <div class="endpoint-card">
+                <div class="endpoint-header">
+                    <div>
+                        <span class="method">GET</span>
+                        <span class="endpoint-path">/api/health</span>
+                    </div>
+                </div>
+                <div class="endpoint-description">
+                    Health check endpoint - verify API is running
+                </div>
+                <button onclick="testEndpoint('health')">
+                    Test Health Check
+                </button>
+                <div id="response-health" class="response-container"></div>
+            </div>
+
+            <!-- Get All Profiles -->
+            <div class="endpoint-card">
+                <div class="endpoint-header">
+                    <div>
+                        <span class="method">GET</span>
+                        <span class="endpoint-path">/api/profiles</span>
+                    </div>
+                </div>
+                <div class="endpoint-description">
+                    Get all user profiles (requires authentication)
+                </div>
+                <button onclick="testEndpoint('profiles')">
+                    Test Get Profiles
+                </button>
+                <div id="response-profiles" class="response-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'https://us-central1-mealex1.cloudfunctions.net/api';
+
+        async function testEndpoint(name) {
+            const button = event.target;
+            const responseContainer = document.getElementById(`response-${name}`);
+            
+            // Disable button and show loading
+            button.disabled = true;
+            button.innerHTML = button.textContent.split(' ')[0] + ' Testing...<span class="loading"></span>';
+            
+            // Show response container
+            responseContainer.classList.add('show');
+            responseContainer.innerHTML = '<pre>Loading...</pre>';
+
+            try {
+                let url, options = {};
+                
+                switch(name) {
+                    case 'info':
+                        url = `${API_BASE}`;
+                        break;
+                    case 'health':
+                        url = `${API_BASE}/api/health`;
+                        break;
+                    case 'profiles':
+                        url = `${API_BASE}/api/profiles`;
+                        // This will fail without auth, but shows the structure
+                        options = {
+                            headers: {
+                                'Authorization': 'Bearer YOUR_TOKEN_HERE'
+                            }
+                        };
+                        break;
+                }
+
+                const startTime = Date.now();
+                const response = await fetch(url, options);
+                const duration = Date.now() - startTime;
+                const data = await response.json();
+
+                const statusClass = response.ok ? 'success' : 'error';
+                const statusText = response.ok ? '✓ Success' : '✗ Error';
+                
+                responseContainer.innerHTML = `
+                    <div class="response-header">
+                        <span class="status-badge ${statusClass}">
+                            ${statusText} - ${response.status} ${response.statusText}
+                        </span>
+                        <span style="color: #666; font-size: 0.85em;">
+                            Response time: ${duration}ms
+                        </span>
+                    </div>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+
+            } catch (error) {
+                responseContainer.innerHTML = `
+                    <div class="response-header">
+                        <span class="status-badge error">✗ Network Error</span>
+                    </div>
+                    <pre>${JSON.stringify({ error: error.message }, null, 2)}</pre>
+                `;
+            } finally {
+                // Re-enable button
+                button.disabled = false;
+                button.innerHTML = button.textContent.replace(' Testing...', '').split('<')[0];
+            }
+        }
+    </script>
+</body>
+</html>
