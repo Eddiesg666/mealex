@@ -69,12 +69,12 @@ const data = await response.json();
 
 ## What This Gives You
 
-✅ **RESTful API endpoints** - Clean HTTP interface  
-✅ **Node.js backend** - Serverless functions  
-✅ **Express.js routing** - Industry-standard web framework  
-✅ **Authentication & Authorization** - Secure access control  
-✅ **Scalable architecture** - Auto-scales with traffic  
-✅ **Resume-worthy** - Real REST API experience  
+**RESTful API endpoints** - Clean HTTP interface  
+**Node.js backend** - Serverless functions  
+**Express.js routing** - Industry-standard web framework  
+**Authentication & Authorization** - Secure access control  
+**Scalable architecture** - Auto-scales with traffic  
+**Resume-worthy** - Real REST API experience  
 
 ## Resume Update
 
