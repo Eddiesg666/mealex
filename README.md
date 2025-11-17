@@ -1,95 +1,138 @@
-# React + TypeScript + Vite + Vitest
+# Mealex 🍽️
 
-A starter template for building React 19+ apps in TypeScript with Vite and TailwindCSS 4. Includes Vitest for unit testing and
-a hefty .gitignore file. React compiler enabled.
+A social networking app designed to connect Northwestern University students for dining experiences. Mealex helps students find dining partners, share meal preferences, and build connections within the university community.
 
-# Requirements
+## Overview
 
-Node 22 or greater.
+Mealex is a React-based web application that allows Northwestern students to:
+- Create detailed profiles with personal information, interests, and availability
+- Browse and discover other students looking for dining companions
+- Send and receive connection invitations
+- Manage incoming and outgoing invitation requests
+- Filter profiles based on interests and preferences
+
+The app uses Firebase for authentication and real-time data storage, ensuring secure access limited to Northwestern University email addresses (@u.northwestern.edu).
+
+## Features
+
+### 🔐 **Authentication**
+- Google Sign-In integration
+- Restricted access to Northwestern University email addresses
+- Secure user authentication through Firebase Auth
+
+### 👤 **User Profiles**
+- Complete profile creation and editing
+- Personal information (name, major, graduation year, bio)
+- Interest tags and meal preferences
+- Availability scheduling
+- LinkedIn profile integration
+- Profile photo from Google account
+
+### 🤝 **Social Connections**
+- Browse other student profiles
+- Send connection invitations with custom messages
+- Accept or decline incoming invitations
+- Track invitation status (pending, accepted, rejected)
+- Timestamped message history
+
+### 🔍 **Discovery & Filtering**
+- Search and filter profiles by interests
+- View detailed profile pages
+- Responsive grid layout for profile browsing
+
+## Tech Stack
+
+- **Frontend**: React 19+ with TypeScript
+- **Styling**: TailwindCSS 4
+- **Build Tool**: Vite
+- **Routing**: TanStack Router
+- **Forms**: React Hook Form with Zod validation
+- **Backend**: Firebase (Authentication + Realtime Database)
+- **Testing**: Vitest
+
+## Requirements
+
+- Node.js 22 or greater
+- Northwestern University email address (@u.northwestern.edu)
+
+## Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Eddiesg666/mealex.git
+   cd mealex
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Configuration**
+   Create a `.env` file in the root directory with your Firebase configuration:
+   ```env
+   VITE_FIREBASE_API_KEY=your_api_key
+   VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+   VITE_FIREBASE_DB_URL=your_database_url
+   VITE_FIREBASE_PROJECT_ID=your_project_id
+   VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+   VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+   VITE_FIREBASE_APP_ID=your_app_id
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to the URL displayed in the terminal (typically `http://localhost:5173`)
+
+## Available Scripts
+
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Runs the app in development mode |
+| `npm run build` | Builds the app for production |
+| `npm run serve` | Serves the production build |
+| `npm test` | Runs the test suite |
+| `npm run coverage` | Runs tests with coverage reports |
+
+## Project Structure
+
+```
+mealex/
+├── public/
+│   └── robots.txt
+├── src/
+│   ├── components/          # React components
+│   │   ├── ProfileCard.tsx
+│   │   ├── UserProfile.tsx
+│   │   ├── InvitationForm.tsx
+│   │   └── ...
+│   ├── contexts/           # React contexts
+│   │   └── ProfilesContext.tsx
+│   ├── routes/             # TanStack Router routes
+│   │   ├── index.tsx
+│   │   ├── profile.tsx
+│   │   └── ...
+│   ├── types/              # TypeScript type definitions
+│   │   ├── Profile.ts
+│   │   └── Message.ts
+│   ├── utilities/          # Utility functions
+│   │   └── firebase.ts
+│   └── main.tsx
+├── docs/                   # Documentation
+├── minutes/               # Meeting minutes
+└── ...
+```
 
 ## Usage
 
-```
-mkdir your-app-name
-cd your-app-name
-npx degit criesbeck/react-ts-vitest
-npm install
-```
-Note: degit sometimes fails to say it is done after announcing it has cloned the repo.
-If that happens, type control-C and then do `npm install`.
+1. **Sign In**: Use your Northwestern University Google account to sign in
+2. **Create Profile**: Complete your profile with personal information and preferences
+3. **Browse Profiles**: Explore other students' profiles using the main dashboard
+4. **Connect**: Send invitations to students you'd like to dine with
+5. **Manage Invitations**: Accept or decline incoming requests in your profile page
+6. **Stay Connected**: Track your connections and plan dining experiences
 
-## Test
-
-Verify that the initial app works. Run
-
-```
-npm run dev
-```
-
-Open the URL displayed. Click on the counter to increment it.
-
-Then verify that the unit tests work with
-
-```
-npm test
-```
-
-Two tests should run and pass. 
-
-## Scripts
-
-**package.json** defines the following scripts:
-
-| Script           | Description                                         |
-| -----------------| --------------------------------------------------- |
-| npm run dev      | Runs the app in the development mode.               |
-| npm run build    | Builds the app for production to the `dist` folder. |
-| npm run serve    | Serves the production build from the `dist` folder. |
-| npm test         | Starts a Jest-like test loop                        |
-| npm run coverage | Runs the tests, displays code coverage results      |
-
-
-## Git
-
-If everything is working, set up [your local and remote repositories](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-using-git).
-
-## Folder Structure
-
-```
-your-app-name
-├── public
-│   └── robots.txt
-│   ├── vite.svg
-└── src
-    |-- assets
-        └── react.svg
-    ├── App.tsx
-    ├── index.css
-    ├── main.tsx
-    ├── vite-env.d.ts
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package.json
-├── README.md
-├── tsconfig.app.json
-├── tsconfig.son
-├── tsconfig.node.json
-├── vite.config.ts
-```
-
-## Credits
-
-Built and maintained by [Chris Riesbeck](https://github.com/criesbeck).
-
-Inspired by [SafdarJamal/vite-template-react](https://github.com/SafdarJamal/vite-template-react).
-Expanded to include Vitest and some sample tests.
-
-Thanks to Rich Harris for [degit](https://www.npmjs.com/package/degit).
-
-Gitignore file created with [the Toptal tool](https://www.toptal.com/developers/gitignore/api/react,firebase,visualstudiocode,macos,windows).
-
-
-## License
-
-This project is licensed under the terms of the [MIT license](./LICENSE).
