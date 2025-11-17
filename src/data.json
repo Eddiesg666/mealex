@@ -1,0 +1,179 @@
+{
+  "profiles": [
+    {
+      "bio": "Interested in AI research and internships.",
+      "email": "alicebrown2028@u.northwestern.edu",
+      "id": "1",
+      "major": "Computer Science",
+      "name": "Alice Brown",
+      "interests": [
+        "AI",
+        "Internships"
+      ],
+      "year": "2028"
+    },
+    {
+      "bio": "Interested in consulting and finance events.",
+      "email": "benmartinez2026@u.northwestern.edu",
+      "id": "2",
+      "major": "Economics",
+      "name": "Ben Martinez",
+      "interests": [
+        "Consulting",
+        "Finance"
+      ],
+      "year": "2026"
+    },
+    {
+      "bio": "Hardware design and embedded systems.",
+      "email": "chriskim2027@u.northwestern.edu",
+      "id": "3",
+      "major": "Electrical Engineering",
+      "name": "Chris Kim",
+      "interests": [
+        "Hardware",
+        "Embedded"
+      ],
+      "year": "2027"
+    },
+    {
+      "bio": "Enjoys tutoring and research in applied math.",
+      "email": "danalee2025@u.northwestern.edu",
+      "id": "4",
+      "major": "Mathematics",
+      "name": "Dana Lee",
+      "interests": [
+        "Research",
+        "Tutoring"
+      ],
+      "year": "2025"
+    },
+    {
+      "bio": "Full-stack dev, open-source contributor.",
+      "email": "evansmith2026@u.northwestern.edu",
+      "id": "5",
+      "major": "Computer Science",
+      "name": "Evan Smith",
+      "interests": [
+        "Full-stack",
+        "Open-source"
+      ],
+      "year": "2026"
+    },
+    {
+      "bio": "Interested in media, writing, and communications.",
+      "email": "fionagreen2028@u.northwestern.edu",
+      "id": "6",
+      "major": "Journalism",
+      "name": "Fiona Green",
+      "interests": [
+        "Media",
+        "Writing"
+      ],
+      "year": "2028"
+    },
+    {
+      "bio": "Robotics club lead, loves prototyping.",
+      "email": "georgethompson2025@u.northwestern.edu",
+      "id": "7",
+      "major": "Mechanical Engineering",
+      "name": "George Thompson",
+      "interests": [
+        "Robotics",
+        "Prototyping"
+      ],
+      "year": "2025"
+    },
+    {
+      "bio": "Lab experience, pre-med track.",
+      "email": "hannahli2027@u.northwestern.edu",
+      "id": "8",
+      "major": "Biology",
+      "name": "Hannah Li",
+      "interests": [
+        "Lab",
+        "Pre-med"
+      ],
+      "year": "2027"
+    },
+    {
+      "bio": "Senior studying CS with a focus in AI & SWE. Previously interned at a finance firm and startup",
+      "email": "EikoReisz2026@u.northwestern.edu",
+      "id": "9",
+      "major": "Computer Science",
+      "name": "Eiko Reisz",
+      "interests": [
+        "AI",
+        "Finance",
+        "SWE"
+      ],
+      "year": "2026"
+    },
+    {
+      "bio": "Fourth year Computer Science student with a minor in Spanish. Interned at IBM",
+      "email": "IanSlater2026@u.northwestern.edu",
+      "id": "10",
+      "major": "Computer Science",
+      "name": "Ian Slater",
+      "interests": [
+        "Tech Sales",
+        "SWE"
+      ],
+      "year": "2026"
+    },
+    {
+      "bio": "Junior studying CS + Math",
+      "email": "RohanSekhar2027@u.northwestern.edu",
+      "id": "11",
+      "major": "Computer Science",
+      "name": "Rohan Sekhar",
+      "interests": [
+        "Math",
+        "Software Development"
+      ],
+      "year": "2027"
+    },
+    {
+      "bio": "Junior studying Computer Science",
+      "email": "BrandonDo2027@u.northwestern.edu",
+      "id": "12",
+      "major": "Computer Science",
+      "name": "Brandon Do",
+      "interests": [
+        "Full Stack",
+        "Web Development"
+      ],
+      "year": "2027"
+    },
+    {
+      "bio": "Master's student studying BME with a focus in software design. Prev interned at Tech companies",
+      "email": "EddieShangguan2027@u.northwestern.edu",
+      "id": "13",
+      "major": "Biomedical Engineering",
+      "name": "Eddie Shangguan",
+      "interests": [
+        "AI",
+        "Data Engineering",
+        "Software Design"
+      ],
+      "year": "2027"
+    }
+  ],
+  "invitations": [
+    {
+      "id": "1",
+      "messages": [
+        {
+          "senderId": "9",
+          "receiverId": "1",
+          "message": "Hi Alice, I see you're interested in AI research. I'd love to connect and discuss potential opportunities!"
+        },
+        {
+          "senderId": "10",
+          "receiverId": "1",
+          "message": "Hello Alice, as a fellow CS student, I'm interested in your AI projects. Let's connect!"
+        }
+      ]
+    }
+  ]
+}
