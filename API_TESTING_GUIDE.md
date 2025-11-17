@@ -1,13 +1,13 @@
 # Mealex REST API Testing Guide
 
-Your REST API is successfully deployed at:
+The REST API is successfully deployed at:
 ```
 https://us-central1-mealex1.cloudfunctions.net/api
 ```
 
 ## Method 1: Test Health Endpoint (No Authentication)
 
-The easiest way to verify your API works:
+The easiest way to verify the API works:
 
 ```bash
 curl https://us-central1-mealex1.cloudfunctions.net/api/api/health
@@ -24,7 +24,7 @@ This is the BEST way to test authenticated endpoints:
 
 ### Step 1: Open Your Deployed Mealex App
 ```bash
-# Deploy your app if you haven't already
+# Deploy your app if haven't already
 npm run build
 firebase deploy
 
@@ -32,10 +32,10 @@ firebase deploy
 npm run dev
 ```
 
-### Step 2: Login to Your App
-- Go to your Mealex app (deployed or localhost)
+### Step 2: Login to the App
+- Go to the Mealex app (deployed or localhost)
 - Login with your @u.northwestern.edu Google account
-- You should see your profile
+- Should see your profile
 
 ### Step 3: Open Browser Console
 - Press `F12` (Windows/Linux) or `Cmd+Option+I` (Mac)
@@ -164,9 +164,8 @@ When your API is working correctly, you should see:
 }
 ```
 
-## Why This Matters
+## Summary
 
-Your REST API proves you can:
 - Build backend services with Node.js + Express
 - Deploy to Google Cloud Platform (Firebase Functions)
 - Implement JWT authentication
@@ -174,8 +173,6 @@ Your REST API proves you can:
 - Secure endpoints with authorization checks
 - Handle errors gracefully
 - Work with cloud databases
-
-This is a complete full-stack skill set! 🎉
 
 ## Quick Verification Checklist
 
@@ -186,4 +183,3 @@ This is a complete full-stack skill set! 🎉
 - [ ] Authenticated endpoints return data (not 401 errors)
 - [ ] Firebase logs show API requests
 
-Once you've completed these checks, your REST API is fully functional and ready to include on your resume! 🚀

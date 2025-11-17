@@ -51,7 +51,7 @@ After deployment, you'll see output like:
 
 ### 5. Update Frontend to Use REST API (Optional)
 
-You can now optionally update your React app to use REST endpoints instead of direct database calls.
+You can now optionally update the React app to use REST endpoints instead of direct database calls.
 
 Example in `firebase.ts`:
 ```typescript
@@ -76,24 +76,6 @@ const data = await response.json();
 **Scalable architecture** - Auto-scales with traffic  
 **Resume-worthy** - Real REST API experience  
 
-## Resume Update
-
-Now you can honestly say:
-
-• **Implemented Node.js REST API** with Express.js and Firebase Cloud Functions, providing secure endpoints for invitation and profile management with JWT authentication
-
-Or integrate into existing bullets:
-
-• Implemented real‑time invitation delivery and sub‑second status sync using Firebase Realtime Database, Node.js REST API, and custom React hooks
-
-## Cost Note
-
-Firebase Cloud Functions free tier includes:
-- 2M invocations/month
-- 400K GB-seconds/month
-- 200K CPU-seconds/month
-
-This should be more than enough for a portfolio project!
 
 ## Troubleshooting
 
